@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice Agent Demo</title>
+<style>
+  :root{
+    --bg:#0e0f10; --panel:#161819; --line:#272a2c;
+    --ink:#f2f3f4; --muted:#9aa0a4; --accent:#2d9d9f;
+  }
+  :root:not([data-theme="light"]){}
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="light"]){
+      --bg:#fbfbfa; --panel:#ffffff; --line:#e4e4e2;
+      --ink:#1a1c1d; --muted:#666b6e; --accent:#23807f;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0f10; --panel:#161819; --line:#272a2c;
+    --ink:#f2f3f4; --muted:#9aa0a4; --accent:#2d9d9f;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px; margin:0 auto; padding:56px 16px 120px}
+  .eyebrow{
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 10px;
+  }
+  h1{font-size:clamp(26px,6vw,36px); line-height:1.15; margin:0 0 14px; font-weight:600}
+  .lede{color:var(--muted); font-size:16px; margin:0 0 32px}
+  .card{
+    background:var(--panel); border:1px solid var(--line);
+    border-radius:10px; padding:22px; margin:0 0 18px;
+  }
+  .card h2{font-size:15px; margin:0 0 12px; font-weight:600}
+  blockquote{
+    margin:0; padding:14px 16px; border-left:3px solid var(--accent);
+    background:rgba(45,157,159,.07); border-radius:0 6px 6px 0;
+    font-size:15px;
+  }
+  blockquote .en{display:block; margin-top:8px; color:var(--muted); font-size:13.5px}
+  ol{margin:0; padding-left:20px; color:var(--muted); font-size:14.5px}
+  ol li{margin-bottom:7px}
+  ol li strong{color:var(--ink); font-weight:600}
+  table{width:100%; border-collapse:collapse; font-size:14px}
+  td{padding:8px 0; border-bottom:1px solid var(--line); color:var(--muted)}
+  td:first-child{color:var(--ink); width:45%}
+  tr:last-child td{border-bottom:0}
+  .note{
+    font-size:13px; color:var(--muted); background:transparent;
+    border:1px dashed var(--line); border-radius:8px; padding:13px 15px;
+  }
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px;
+    background:rgba(127,127,127,.14); padding:2px 5px; border-radius:4px;
+  }
+  footer{margin-top:34px; font-size:12.5px; color:var(--muted)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="eyebrow">Live demo</p>
+  <h1>AI voice agent</h1>
+  <p class="lede">
+    A Hinglish-speaking agent that answers pre-calls, works out who is calling and what they
+    need, and then hands off. Click <strong>Talk to Atoms</strong> in the bottom-right corner
+    and speak to it.
+  </p>
+
+  <div class="card">
+    <h2>How it opens</h2>
+    <blockquote>
+      "Namaste. Main Vannsh Patwarri ka personal assistent hun. Kya main jaan sakta hun ki aap
+      kon baat kar rahain hai?"
+      <span class="en">"Hello. I'm Vannsh Patwarri's personal assistant. May I know who I'm
+      speaking with?"</span>
+    </blockquote>
+  </div>
+
+  <div class="card">
+    <h2>Try it</h2>
+    <ol>
+      <li>Click <strong>Talk to Atoms</strong>, bottom-right</li>
+      <li>Press <strong>Start</strong> and <strong>allow microphone access</strong> when prompted</li>
+      <li>Just talk — say who you are and what you're calling about</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>Under the hood</h2>
+    <table>
+      <tr><td>Platform</td><td>Atoms (Smallest AI)</td></tr>
+      <tr><td>Voice infrastructure</td><td>LiveKit Cloud</td></tr>
+      <tr><td>Mode</td><td>Real-time voice</td></tr>
+      <tr><td>Language</td><td>Conversational Hinglish</td></tr>
+      <tr><td>Embed size</td><td>Two lines of HTML</td></tr>
+    </table>
+  </div>
+
+  <p class="note">
+    Needs microphone permission. If you see a connection error, your browser is blocking
+    mic access — check the padlock icon in the address bar. Sandboxed preview panes block
+    device capture entirely and will always fail here; open this page in a normal browser tab.
+  </p>
+
+  <footer>
+    Built by <strong>Vansh Patwari</strong> — vannshpatwarri3@gmail.com ·
+    <a href="https://github.com/vannshpatwarri3-hub" style="color:var(--accent)">github.com/vannshpatwarri3-hub</a>
+  </footer>
+</div>
+
+<atoms-widget assistant-id="6a8dca8da7df75b9ebe96782"></atoms-widget>
+<script src="https://unpkg.com/atoms-widget-core@latest/dist/embed/widget.umd.js"></script>
+
+</body>
+</html>
